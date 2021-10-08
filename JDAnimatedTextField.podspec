@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "JDAnimatedTextField"
-  s.version      = "1.0.0"
+  s.version      = "1.1.0"
   s.summary      = "JDAnimatedTextField framework"
   s.description  = <<-DESC
                   JDAnimatedTextField can enhance user experience UX of the application with animated textField

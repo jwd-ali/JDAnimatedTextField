@@ -25,7 +25,9 @@ class ViewController: UIViewController {
     field.translatesAutoresizingMaskIntoConstraints = false
     field.placeholder = "Right"
     field.textFieldColor = #colorLiteral(red: 0.3220693469, green: 0.01451195218, blue: 0.5633357763, alpha: 1)
+    field.placeHolderFont = UIFont.boldSystemFont(ofSize: 14)
     field.delegate = self
+    field.lineWidth = 1
     field.spellCheckingType = .no
     field.textAlignment = .right
     return field
@@ -36,7 +38,9 @@ class ViewController: UIViewController {
     field.translatesAutoresizingMaskIntoConstraints = false
     field.placeholder = "Small"
     field.textFieldColor = #colorLiteral(red: 0.6679978967, green: 0.4751212597, blue: 0.2586010993, alpha: 1)
+    field.placeHolderFont = UIFont.systemFont(ofSize: 14)
     field.delegate = self
+    field.lineWidth = 0.5
     field.spellCheckingType = .no
     field.textAlignment = .center
     return field
@@ -48,6 +52,8 @@ class ViewController: UIViewController {
     field.placeholder = "Medium"
     field.textFieldColor = #colorLiteral(red: 1, green: 0.6235294118, blue: 0.03921568627, alpha: 1)
     field.delegate = self
+    field.placeHolderFont = UIFont.systemFont(ofSize: 16)
+    field.lineWidth = 5
     field.spellCheckingType = .no
     field.textAlignment = .left
     return field
@@ -58,6 +64,8 @@ class ViewController: UIViewController {
     field.translatesAutoresizingMaskIntoConstraints = false
     field.placeholder = "Left"
     field.textFieldColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+    field.lineWidth = 2
+    field.placeHolderFont = UIFont.systemFont(ofSize: 20)
     field.delegate = self
     field.spellCheckingType = .no
     field.textAlignment = .left

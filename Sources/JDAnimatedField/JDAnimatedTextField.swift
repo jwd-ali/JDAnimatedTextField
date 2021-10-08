@@ -36,6 +36,9 @@ open class JDAnimatedTextField: UITextField {
 
   @IBInspectable dynamic open var lineWidth: CGFloat = 4 { didSet { layoutIfNeeded() } }
   @IBInspectable dynamic open var textFieldColor: UIColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1) { didSet { layoutIfNeeded() } }
+  @IBInspectable dynamic open var placeHolderFont: UIFont = UIFont.boldSystemFont(ofSize: 20) { didSet { layoutIfNeeded() } }
+  @IBInspectable dynamic open var errorLabelFont: UIFont = UIFont.boldSystemFont(ofSize: 14) { didSet { layoutIfNeeded() } }
+  @IBInspectable dynamic open var errorLabelColor: UIColor = .red { didSet { layoutIfNeeded() } }
 
   open override var placeholder: String? {
     didSet {
@@ -69,6 +72,8 @@ open class JDAnimatedTextField: UITextField {
   public override func layoutSubviews() {
     super.layoutSubviews()
     setColors()
+    setFonts()
+    setLineWidth()
     updatePaths(midPoint: cursorPosition)
   }
 }
@@ -78,6 +83,12 @@ private extension JDAnimatedTextField {
     [shapeLayerRight, shapeLayerLeft, shapeLayer].forEach { $0.strokeColor = textFieldColor.cgColor }
     tintColor = textFieldColor
     textColor = textFieldColor
+    errorLabel.textColor = errorLabelColor
+  }
+
+  func setFonts() {
+    floatingLabel.font = placeHolderFont
+    errorLabel.font = errorLabelFont
   }
 
   func commonInit() {
@@ -147,6 +158,10 @@ private extension JDAnimatedTextField {
     shapeLayerLeft.path = bezierPathRight.cgPath
     shapeLayerRight.path = bezierPathLeft.cgPath
 
+  }
+
+  func setLineWidth() {
+    [shapeLayerRight, shapeLayerLeft, shapeLayer].forEach { $0.lineWidth = lineWidth }
   }
 
   func setFloatingLabelText() {
