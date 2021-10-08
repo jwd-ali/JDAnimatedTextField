@@ -1,6 +1,6 @@
 
 Pod::Spec.new do |s|
-  s.name         = "JDTextField"
+  s.name         = "JDAnimatedTextField"
   s.version      = "1.0.0"
   s.summary      = "JDAnimatedTextField framework"
   s.description  = <<-DESC
