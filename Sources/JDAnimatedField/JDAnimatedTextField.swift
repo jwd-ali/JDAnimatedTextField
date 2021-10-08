@@ -218,7 +218,10 @@ private extension JDAnimatedTextField {
   }
 
   private func setCursor() {
-    cursorPosition = super.caretRect(for: self.selectedTextRange!.start).origin.x
+    guard let selectedRange = self.selectedTextRange else {
+      return
+    }
+    cursorPosition = super.caretRect(for: selectedRange.start).origin.x
     if textAlignment == .center {
       cursorPosition += offset
       cursorPosition += CGFloat(Int(bounds.maxX)/200)
@@ -230,7 +233,6 @@ private extension JDAnimatedTextField {
   @objc func allEvents() {
     setCursor()
     updatePaths(midPoint: cursorPosition)
-    print("all event:\(cursorPosition)")
   }
 }
 
